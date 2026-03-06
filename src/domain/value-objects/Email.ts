@@ -24,7 +24,7 @@ export class Email {
     const normalized = email.trim().toLowerCase();
 
     // 3. Regex Linear: Segura contra backtracking catastrófico
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    const emailRegex =  /^[^\s@]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
     if (!emailRegex.test(normalized)) {
       throw new ValidationError("Invalid email format");
