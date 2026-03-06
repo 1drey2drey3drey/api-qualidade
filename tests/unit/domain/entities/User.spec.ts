@@ -1,10 +1,11 @@
 import { describe, expect, it } from "vitest";
 import { User } from "../../../../src/domain/entities/User";
 import { ValidationError } from "../../../../src/shared/errors/ValidationError";
+import { randomUUID } from "node:crypto";
 
 describe("User entity", () => {
   
-  const getTestHash = () => `hash_${Math.random().toString(36).substring(7)}`;
+const getTestHash = () => `hash_${randomUUID()}`;
 
   const createBaseUserProps = (overrides = {}) => ({
     id: "user-1",
