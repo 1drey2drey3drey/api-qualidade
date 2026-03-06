@@ -6,6 +6,13 @@
       "email": "alice@mail.com",
       "passwordHash": "REDACTED_AND_REVOKED",
       "createdAt": "2026-03-05T04:15:22.640Z"
+    },
+    {
+      "id": "b19af8ab-0882-4f7d-9cd5-48968e5ae22d",
+      "name": "cui",
+      "email": "cui@mail.com",
+      "passwordHash": "$2b$10$.ttfzJ3yvdgploSYzQsk9u/HoDbHr5MOKGANHPmqRRy.qqCjQLWFq",
+      "createdAt": "2026-03-06T12:16:17.155Z"
     }
   ],
   "cards": [

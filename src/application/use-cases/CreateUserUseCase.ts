@@ -2,6 +2,7 @@ import type { CreateUserInputDto } from "../dto/requests";
 import type { PasswordHasher } from "../ports/PasswordHasher";
 import type { UserRepository } from "../ports/UserRepository";
 import { User } from "../../domain/entities/User";
+import { Email } from "../../domain/value-objects/Email"; // 1. Importe o novo Value Object
 import type { IdGenerator } from "../ports/IdGenerator";
 import { MIN_PASSWORD_LENGTH } from "../../shared/constants/business-rules";
 import { BusinessRuleError } from "../../shared/errors/BusinessRuleError";
@@ -16,26 +17,31 @@ export class CreateUserUseCase {
   ) {}
 
   public async execute(input: CreateUserInputDto): Promise<User> {
+
     assertNonEmptyString(input.name, "name");
-    assertNonEmptyString(input.email, "email");
     assertNonEmptyString(input.password, "password");
+
+
+    const emailVO = Email.create(input.email);
 
     if (input.password.length < MIN_PASSWORD_LENGTH) {
       throw new ValidationError(`Password must have at least ${MIN_PASSWORD_LENGTH} characters`);
     }
 
-    const existingUser = await this.userRepository.findByEmail(input.email);
+
+    const existingUser = await this.userRepository.findByEmail(emailVO.getValue());
     
     if (existingUser) {
       throw new BusinessRuleError("User with this email already exists");
     }
+
 
     const passwordHash = await this.passwordHasher.hash(input.password);
 
     const user = User.create({
       id: this.idGenerator.generate(),
       name: input.name.trim(),
-      email: input.email,
+      email: emailVO.getValue(), 
       passwordHash,
       createdAt: new Date()
     });

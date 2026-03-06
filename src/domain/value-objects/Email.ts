@@ -3,15 +3,17 @@ import { ValidationError } from "../../shared/errors/ValidationError";
 export class Email {
   private readonly value: string;
 
-  // Limite máximo de caracteres para um e-mail conforme a RFC 5321
+
   private static readonly MAX_LENGTH = 254;
 
   private constructor(value: string) {
     this.value = value;
   }
 
+ 
   public static create(email: string): Email {
-    if (!email) {
+
+    if (!email?.trim()) {
       throw new ValidationError("Email is required");
     }
 
