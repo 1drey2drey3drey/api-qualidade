@@ -6,20 +6,6 @@
       "email": "alice@mail.com",
       "passwordHash": "REDACTED_AND_REVOKED",
       "createdAt": "2026-03-05T04:15:22.640Z"
-    },
-    {
-      "id": "2c09ba5a-9425-4d2c-9aeb-4e2d6ad7f4f1",
-      "name": "caio",
-      "email": "caio@mail.com",
-      "passwordHash": "$2b$10$xSrJC06RIkCeFAeOqtoaUewdUjcxcNZqgutyt75PqSm/mhtDiRrwC",
-      "createdAt": "2026-03-06T11:49:51.320Z"
-    },
-    {
-      "id": "4ebf638f-e94f-4ae8-bc13-8b954045287b",
-      "name": "cui",
-      "email": "cui@mail.com",
-      "passwordHash": "$2b$10$J/tfm8EghSYc63GuRAz/du2L5fSoRtIa6u/yDRsj1pIWy/e1wXEF.",
-      "createdAt": "2026-03-06T12:00:15.735Z"
     }
   ],
   "cards": [
