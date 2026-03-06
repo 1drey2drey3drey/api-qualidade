@@ -6,6 +6,9 @@ import type { IdGenerator } from "../../../../src/application/ports/IdGenerator"
 import { BusinessRuleError } from "../../../../src/shared/errors/BusinessRuleError";
 import { ValidationError } from "../../../../src/shared/errors/ValidationError";
 
+const DUMMY_PASSWORD = "any_valid_test_password_123";
+const INVALID_SHORT_PASSWORD = "123";
+
 function buildSut() {
   const userRepository: UserRepository = {
     findById: vi.fn(),
@@ -34,7 +37,7 @@ describe("CreateUserUseCase", () => {
     const user = await useCase.execute({
       name: "Alice",
       email: "alice@mail.com",
-      password: "12345678"
+      password: DUMMY_PASSWORD
     });
 
     expect(passwordHasher.hash).toHaveBeenCalledWith("12345678");
@@ -50,7 +53,7 @@ describe("CreateUserUseCase", () => {
       useCase.execute({
         name: "Alice",
         email: "alice@mail.com",
-        password: "12345678"
+        password:  DUMMY_PASSWORD
       })
     ).rejects.toThrow(BusinessRuleError);
   });
@@ -63,7 +66,7 @@ describe("CreateUserUseCase", () => {
       useCase.execute({
         name: "Alice",
         email: "alice@mail.com",
-        password: "123"
+        password: INVALID_SHORT_PASSWORD
       })
     ).rejects.toThrow(ValidationError);
   });
