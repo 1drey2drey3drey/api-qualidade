@@ -5,9 +5,10 @@ import type { PasswordHasher } from "../../../../src/application/ports/PasswordH
 import type { IdGenerator } from "../../../../src/application/ports/IdGenerator";
 import { BusinessRuleError } from "../../../../src/shared/errors/BusinessRuleError";
 import { ValidationError } from "../../../../src/shared/errors/ValidationError";
+import { faker } from '@faker-js/faker';
 
-const DUMMY_PASSWORD = "any_valid_test_password_123";
-const INVALID_SHORT_PASSWORD = "123";
+const DUMMY_PASSWORD = faker.internet.password({ length: 12 });
+const INVALID_SHORT_PASSWORD = faker.string.alphanumeric(3);
 
 function buildSut() {
   const userRepository: UserRepository = {
