@@ -12,8 +12,9 @@ export class UserController {
       password: String(request.body.password ?? "")
     });
 
+    // Ao extrair o passwordHash aqui, ele "sobra" fora do safeUser
+    // Não precisamos de void ou qualquer outra operação com ele.
     const { passwordHash, ...safeUser } = user.toJSON();
-    void passwordHash;
 
     response.status(HTTP_STATUS.CREATED).json(safeUser);
   }

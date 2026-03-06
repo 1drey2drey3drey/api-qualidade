@@ -4,8 +4,15 @@
       "id": "b7b0b2a2-41ce-4d44-9b82-435eeb6f3eff",
       "name": "Alice",
       "email": "alice@mail.com",
-      "passwordHash": "$2b$10$5hWX8f2p.wfs6fZ1XTBdY.jTH3eyEYg9zpwKLD9gvCvWBHcecpVHG",
+      "passwordHash": "REDACTED_AND_REVOKED",
       "createdAt": "2026-03-05T04:15:22.640Z"
+    },
+    {
+      "id": "2c09ba5a-9425-4d2c-9aeb-4e2d6ad7f4f1",
+      "name": "caio",
+      "email": "caio@mail.com",
+      "passwordHash": "$2b$10$xSrJC06RIkCeFAeOqtoaUewdUjcxcNZqgutyt75PqSm/mhtDiRrwC",
+      "createdAt": "2026-03-06T11:49:51.320Z"
     }
   ],
   "cards": [

@@ -25,12 +25,13 @@ export class CreateUserUseCase {
     }
 
     const existingUser = await this.userRepository.findByEmail(input.email);
-    const shouldCreateUser = existingUser ? false : true;
-    if (!shouldCreateUser) {
+    
+    if (existingUser) {
       throw new BusinessRuleError("User with this email already exists");
     }
 
     const passwordHash = await this.passwordHasher.hash(input.password);
+
     const user = User.create({
       id: this.idGenerator.generate(),
       name: input.name.trim(),
@@ -40,6 +41,7 @@ export class CreateUserUseCase {
     });
 
     await this.userRepository.save(user);
+
     return user;
   }
 }
