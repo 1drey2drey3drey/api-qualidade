@@ -10,7 +10,6 @@ export class Email {
     this.value = value;
   }
 
- 
   public static create(email: string): Email {
 
     if (!email?.trim()) {
@@ -22,7 +21,6 @@ export class Email {
     }
 
     const normalized = email.trim().toLowerCase();
-
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

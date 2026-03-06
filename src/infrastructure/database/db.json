@@ -13,6 +13,13 @@
       "email": "cui@mail.com",
       "passwordHash": "$2b$10$.ttfzJ3yvdgploSYzQsk9u/HoDbHr5MOKGANHPmqRRy.qqCjQLWFq",
       "createdAt": "2026-03-06T12:16:17.155Z"
+    },
+    {
+      "id": "9b1ab455-59bb-4266-8374-c4bd0c7c089f",
+      "name": "febiyf",
+      "email": "aaa@mail.com",
+      "passwordHash": "$2b$10$Wp5a.bgjcTPj5g0EfaDCXeacR6wsMttz37EMBnv2dUMGcXseAgtKi",
+      "createdAt": "2026-03-06T12:19:29.702Z"
     }
   ],
   "cards": [
